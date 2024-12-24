@@ -345,7 +345,7 @@ const StudentForm = ({ isOpen, onClose, student, onSubmit }) => {
 
   useEffect(() => {
     // Fetch available courses
-    axios.get("http://localhost:3001/courses").then((response) => {
+    axios.get("https://praneethbackend.onrender.com/courses").then((response) => {
       setAllCourses(response.data);
     });
 
