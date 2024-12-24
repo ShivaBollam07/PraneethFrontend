@@ -12,7 +12,7 @@ const CourseManager = () => {
 
   const fetchCourses = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/courses");
+      const response = await axios.get("https://praneethbackend.onrender.com/courses");
       setCourses(response.data);
     } catch (error) {
       console.error("Error fetching courses:", error.message);
@@ -27,7 +27,7 @@ const CourseManager = () => {
     }
 
     try {
-      await axios.post("http://localhost:3001/courses", { name: newCourse.trim() });
+      await axios.post("https://praneethbackend.onrender.com/courses", { name: newCourse.trim() });
       setNewCourse("");
       fetchCourses(); // Refresh the list
     } catch (error) {
@@ -39,7 +39,7 @@ const CourseManager = () => {
   const handleDeleteCourse = async (courseId) => {
     if (window.confirm("Are you sure you want to delete this course?")) {
       try {
-        await axios.delete(`http://localhost:3001/courses/${courseId}`);
+        await axios.delete(`https://praneethbackend.onrender.com/courses/${courseId}`);
         fetchCourses(); // Refresh the list
       } catch (error) {
         console.error("Error deleting course:", error.message);
