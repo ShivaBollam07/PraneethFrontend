@@ -367,7 +367,7 @@ const StudentForm = ({ isOpen, onClose, student, onSubmit }) => {
 
     if (student) {
       // Edit existing student
-      await axios.put(`http://localhost:3001/students/${student.id}`, studentData);
+      await axios.put(`https://praneethbackend.onrender.com/${student.id}`, studentData);
     } else {
       // Add a new student
       const dateJoined = new Date().toISOString();
