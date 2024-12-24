@@ -5,7 +5,7 @@ import axios from "axios";
 export const fetchStudents = createAsyncThunk(
     "students/fetchStudents",
     async (filter) => {
-      const response = await axios.get("http://localhost:3001/students", {
+      const response = await axios.get("https://praneethbackend.onrender.com/students", {
         params: filter, // Pass filters as query parameters
       });
       return response.data;
@@ -14,7 +14,7 @@ export const fetchStudents = createAsyncThunk(
   
 // Delete a student
 export const deleteStudent = createAsyncThunk("students/deleteStudent", async (id) => {
-  await axios.delete(`http://localhost:3001/students/${id}`);
+  await axios.delete(`https://praneethbackend.onrender.com/students/${id}`);
   return id; // Return the ID of the deleted student
 });
 
@@ -22,7 +22,7 @@ export const deleteStudent = createAsyncThunk("students/deleteStudent", async (i
 export const updateStudent = createAsyncThunk(
     "students/updateStudent",
     async ({ id, updatedData }) => {
-      const response = await axios.put(`http://localhost:3001/students/${id}`, updatedData);
+      const response = await axios.put(`https://praneethbackend.onrender.com/students/${id}`, updatedData);
       return { id, ...updatedData }; // Ensure the payload structure matches the state requirements
     }
   );
